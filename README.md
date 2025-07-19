@@ -23,3 +23,7 @@ ERROR: The process "python.exe" not found.
 PS C:\Users\smishiva\smithaspersonal\AIProjects\langraph_example> 
 
 
+@malu @sunil go through main.py under fastappii - to see mount style 
+
+chainlit run main.py --port 8000
+Then open: http://localhost:8000
