@@ -26,4 +26,12 @@ class MessageResponse(BaseModel):
 @app.post("/chat", response_model=MessageResponse)
 async def chat_endpoint(req: MessageRequest):
     result = run_graph(user_id=req.user_id, message=req.message)
-    return {"response": result.get("response", "")}
+
+    # Debugging outputs
+    print("🔁 [DEBUG] Full result from run_graph:", result)
+    print("🔁 [DEBUG] Extracted response:", result.get("response"))
+
+    # Fallback if response key is missing or empty
+    return {
+        "response": result.get("response", "---NO RESPONSE RETURNED FROM GRAPH---")
+    }

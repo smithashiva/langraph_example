@@ -4,7 +4,9 @@ def router_node(state):
 
 
 
-    if "calculate" in user_input or "add" in user_input:
-        return "calculation"
+    if "sip" in user_input:
+            return "sip"
+    elif "currency" in user_input or "convert" in user_input:
+            return "currency"
     else:
-        return "advise"
+            return "advise"

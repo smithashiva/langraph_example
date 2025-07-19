@@ -6,7 +6,20 @@ PS C:\Users\smishiva\smithaspersonal\AIProjects\langraph_example> .\venv\Scripts
 
 pip install -r requirements.txt
 
-uvicorn api.app:app --reload
+uvicorn api.app:app --reload- example
 
 uvicorn fastapii.app:app --reload
+
+python test_api.py
+
+netstat -ano | findstr :8000
+
+taskkill /PID 35496 /F
+
+Get-ChildItem -Recurse -Include "__pycache__", "*.pyc" | Remove-Item -Recurse -Force
+
+PS C:\Users\smishiva\smithaspersonal\AIProjects\langraph_example> taskkill /f /im python.exe
+ERROR: The process "python.exe" not found.
+PS C:\Users\smishiva\smithaspersonal\AIProjects\langraph_example> 
+
 

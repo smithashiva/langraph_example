@@ -4,8 +4,9 @@ url = "http://localhost:8000/chat"
 
 payload = {
     "user_id": "88fe35d1-75a4-4675-a3d2-d9c119a0e4c2",
+    "message": "hello how are you ?",
    # "message": "What are some good investment strategies for someone in their 30s?"
-    "message": "What about retirement planning?"
+   # "message": "What about retirement planning?"
 }
 
 try:
