@@ -17,13 +17,15 @@ class HistoryStore:
         with self.conn.cursor() as cur:
             cur.execute("""
                 SELECT state
-                FROM langgraph_sessions
+                FROM agent.langgraph_sessions
                 WHERE user_id = %s AND is_active = TRUE
                 ORDER BY last_accessed_at DESC
                 LIMIT 1
             """, (user_id,))
             row = cur.fetchone()
             if row:
+                print(f"Fetched user_id: {user_id} history: {rows}")
+    
                 return row[0].get("history", [])
             return []
         
@@ -43,7 +45,7 @@ class HistoryStore:
         with self.conn.cursor() as cur:
             cur.execute("""
                 SELECT session_id, state
-                FROM langgraph_sessions
+                FROM agent.langgraph_sessions
                 WHERE user_id = %s AND is_active = TRUE
                 ORDER BY last_accessed_at DESC
                 LIMIT 1
@@ -62,7 +64,7 @@ class HistoryStore:
                 state["history"] = history
 
                 cur.execute("""
-                    UPDATE langgraph_sessions
+                    UPDATE agent.langgraph_sessions
                     SET state = %s,
                         last_accessed_at = %s
                     WHERE session_id = %s
@@ -73,7 +75,7 @@ class HistoryStore:
         with self.conn.cursor() as cur:
             cur.execute("""
                 SELECT session_id
-                FROM langgraph_sessions
+                FROM agent.langgraph_sessions
                 WHERE user_id = %s AND is_active = TRUE
                 ORDER BY last_accessed_at DESC
                 LIMIT 1
@@ -83,7 +85,7 @@ class HistoryStore:
             if result:
                 session_id = result[0]
                 cur.execute("""
-                    UPDATE langgraph_sessions
+                    UPDATE agent.langgraph_sessions
                     SET state = %s,
                         last_accessed_at = %s
                     WHERE session_id = %s

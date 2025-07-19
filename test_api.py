@@ -1,0 +1,17 @@
+import requests
+
+url = "http://localhost:8000/chat"
+
+payload = {
+    "user_id": "b4b2c2b1-22a0-420b-b152-31cc9e9fbedf",
+#"message": "What are some good investment strategies for someone in their 30s?"
+    "message": "What about retirement planning?"
+}
+
+try:
+    response = requests.post(url, json=payload)
+    response.raise_for_status()
+    data = response.json()
+    print("🧠 LLM Response:\n", data["response"])
+except requests.exceptions.RequestException as e:
+    print("❌ Request failed:", e)

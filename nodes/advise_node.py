@@ -4,7 +4,7 @@ from openai import OpenAI
 #client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 client = OpenAI(
-    api_key="",
+    api_key="gsk_UW65qTaQyIhjSm5eahB2WGdyb3FY0SHjpTj1vkJcSUT8AaskHdv",
     base_url="https://api.groq.com/openai/v1"  # or Together/OpenRouter etc.
 )
 
