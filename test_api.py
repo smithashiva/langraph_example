@@ -3,8 +3,8 @@ import requests
 url = "http://localhost:8000/chat"
 
 payload = {
-    "user_id": "b4b2c2b1-22a0-420b-b152-31cc9e9fbedf",
-#"message": "What are some good investment strategies for someone in their 30s?"
+    "user_id": "88fe35d1-75a4-4675-a3d2-d9c119a0e4c2",
+   # "message": "What are some good investment strategies for someone in their 30s?"
     "message": "What about retirement planning?"
 }
 
